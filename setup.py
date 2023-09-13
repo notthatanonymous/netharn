@@ -247,7 +247,7 @@ if __name__ == '__main__':
         extras_require={
             'all': parse_requirements('requirements.txt'),
             'optional': parse_requirements('requirements/optional.txt'),
-            'tests': parse_requirements('requirements/tests.txt'),
+            #'tests': parse_requirements('requirements/tests.txt'),
         },
         packages=find_packages(include='netharn.*'),
         license='Apache 2',
