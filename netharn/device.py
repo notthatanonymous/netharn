@@ -11,7 +11,8 @@ import torch
 import six
 import os
 from netharn import util
-from torch._six import container_abcs
+# from torch._six import container_abcs
+from collections import abc as container_abcs
 
 
 __all__ = ['XPU']
