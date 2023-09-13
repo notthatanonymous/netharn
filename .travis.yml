@@ -1,36 +1,54 @@
 language: python
-sudo: false
-
-cache:
-  apt: true
-  directories:
-  - $HOME/.cache/pip
-  - $HOME/download
-python:
-  - "3.6"
-before_install:
-  - pip install pip -U
-  - pip install --progress-bar off xdoctest -U
-  - python -c "from xdoctest import docstr; print(docstr)"
-  - pip install --progress-bar off torch pyqt5 opencv-python
-  - pip install --progress-bar off pytest pytest-cov codecov
-  - pip install --progress-bar off ubelt progiter -U
-  - pip install --progress-bar off imgaug
-  #- pip install --progress-bar off -e git+https://github.com/aleju/imgaug.git@master#egg=imgaug
-  - pip install --progress-bar off -r requirements.txt 
+jobs:
+  include:
+    - name: "Python 3.8 on Xenial linux"
+      python: 3.8
+      os: linux
+      dist: xenial
+      arch: amd64
+    - name: "Python 3.6 on Xenial linux"
+      python: 3.6
+      os: linux
+      dist: xenial
+      arch: amd64
+    - name: "Python 3.7 on Xenial linux"
+      python: 3.7
+      os: linux
+      dist: xenial
+      arch: amd64
+    - name: "Python 3.7 on Bionic linux"
+      python: 3.7
+      os: linux
+      dist: bionic
+      arch: amd64
+    - name: "Python 3.7 on Focal linux"
+      python: 3.7
+      os: linux
+      dist: focal
+      arch: amd64
+    - name: "Python 3.7 on Xenial linux on arm64"
+      python: 3.7
+      os: linux
+      dist: xenial
+      arch: arm64
+    - name: "Python 3.7 on macOS"
+      os: osx
+      osx_image: xcode11.5  # Python 3.7 running on macOS 10.14.4
+      language: shell       # 'language: python' is an error on Travis CI macOS
+    - name: "Python 3.7 on Windows"
+      os: windows           # Windows 10.0.17134 N/A Build 17134
+      language: shell       # 'language: python' is an error on Travis CI Windows
+      before_install:
+        - choco install python --version 3.7.5
+        - python -m pip install --upgrade pip
+      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH # command to install dependencies
 install:
-  #- travis_retry python setup.py build develop
-  - travis_retry pip install -e .
-script: 
-  #- travis_wait ./run_tests.py
-  #- travis_wait python run_tests.py
-  - travis_wait pytest -p no:doctest --cov-config .coveragerc --cov-report html --xdoctest --cov=netharn 
-after_success: 
-  #- coveralls || echo "Coveralls upload failed"
-  - codecov 
-#after_failure: 
-#  - cat failed_doctests.txt
-cache: 
-    apt: true
-    directories:
-        - $HOME/.pip-cache
+  - pip3 install --upgrade pip
+  - pip3 install -r requirements.txt
+  - pip3 install --upgrade setuptools wheel
+  - pip3 install .
+script:
+  - travis_wait 80 python3 example.py || travis_wait 80 python example.py
+
+after_success:
+  - echo "Successfull."
