@@ -243,12 +243,12 @@ if __name__ == '__main__':
         description='Train and deploy pytorch models',
         long_description=parse_description(),
         long_description_content_type='text/x-rst',
-        install_requires=parse_requirements('requirements/runtime.txt'),
-        extras_require={
-            'all': parse_requirements('requirements.txt'),
-            'optional': parse_requirements('requirements/optional.txt'),
+        #install_requires=parse_requirements('requirements/runtime.txt'),
+        #extras_require={
+        #    'all': parse_requirements('requirements.txt'),
+        #    'optional': parse_requirements('requirements/optional.txt'),
             #'tests': parse_requirements('requirements/tests.txt'),
-        },
+        #},
         packages=find_packages(include='netharn.*'),
         license='Apache 2',
         classifiers=[
