@@ -786,9 +786,9 @@ class ProgMixin(object):
         lrs = set(harn._current_lrs())
         lr_str = ','.join(['{:.4g}'.format(lr) for lr in lrs])
         if six.PY2:
-            desc = 'epoch lr:{} | {}'.format(lr_str, harn.monitor.message())
+            desc = 'epoch lr:{} - {}'.format(lr_str, harn.monitor.message())
         else:
-            desc = 'epoch lr:{} │ {}'.format(lr_str, harn.monitor.message())
+            desc = 'epoch lr:{} - {}'.format(lr_str, harn.monitor.message())
         if not harn.preferences['colored']:
             desc = strip_ansi(desc)
         harn.debug(desc)
