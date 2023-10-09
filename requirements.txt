@@ -16,3 +16,4 @@ scriptconfig >= 0.4.0
 astunparse >= 1.6.1
 networkx
 scipy >= 1.2.1
+packaging
