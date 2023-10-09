@@ -768,7 +768,7 @@ class ProgMixin(object):
             msg = ' | ' .join(parts) + ' |'
         else:
             msg = ' │ ' .join(parts) + ' │'
-        return msg
+        return msg.encode("utf-8")
 
     def _close_prog(harn):
         if harn.main_prog is not None:
