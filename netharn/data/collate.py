@@ -17,7 +17,8 @@ import re
 # int_classes = six.integer_types
 # from torch._six import container_abcs
 from collections import abc as container_abcs
-from torch._six import string_classes, int_classes
+from torch._six import string_classes
+int_classes = int
 default_collate = torch_data.dataloader.default_collate
 
 
