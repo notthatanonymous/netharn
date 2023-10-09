@@ -765,10 +765,10 @@ class ProgMixin(object):
             parts = [bs] + parts
         if six.PY2:
             # work around a unicode issue with tqdm in python2
-            msg = ' | ' .join(parts) + ' |'
+            msg = ' - ' .join(parts) + ' -'
         else:
-            msg = ' │ ' .join(parts) + ' │'
-        return msg.encode("utf-8")
+            msg = ' - ' .join(parts) + ' -'
+        return msg
 
     def _close_prog(harn):
         if harn.main_prog is not None:
