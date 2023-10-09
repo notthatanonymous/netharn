@@ -1483,7 +1483,7 @@ class CoreMixin(object):
                 if loader is not None
             }
 
-            harn._check_thread_safety()
+            #harn._check_thread_safety()
 
             train_loader = harn.loaders.get('train', None)
             vali_loader  = harn.loaders.get('vali', None)
