@@ -17,3 +17,6 @@ astunparse >= 1.6.1
 networkx
 scipy >= 1.2.1
 packaging
+kwarray >= 0.4.0
+kwimage >= 0.4.0
+kwplot >= 0.4.0
