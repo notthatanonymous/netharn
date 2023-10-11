@@ -18,5 +18,6 @@ networkx
 scipy >= 1.2.1
 packaging
 kwarray >= 0.4.0
-kwimage >= 0.4.0
+#kwimage >= 0.4.0
+kwimage[headless]
 kwplot >= 0.4.0
