@@ -281,8 +281,8 @@ def setup_harn(**kw):
         monitor=(nh.Monitor, {
             'minimize': ['loss'],
             'maximize': ['acc'],
-            'patience': 10,
-            'max_epoch': 300,
+            'patience': 5,
+            'max_epoch': 50,
             'smoothing': .4,
         }),
     )
