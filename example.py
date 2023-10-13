@@ -282,7 +282,7 @@ def setup_harn(**kw):
             'minimize': ['loss'],
             'maximize': ['acc'],
             'patience': 5,
-            'max_epoch': 50,
+            'max_epoch': 30,
             'smoothing': .4,
         }),
     )
