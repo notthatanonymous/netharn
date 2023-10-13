@@ -76,13 +76,13 @@ class MnistHarn(nh.FitHarn):
         pred_labels = pred.cpu().numpy()
         true_labels = batch['label'].cpu().numpy()
 
-        if harn.batch_index < 3:
-            import kwimage
-            decoded = harn._decode(outputs, batch['label'])
-            stacked = harn._draw_batch(batch, decoded)
-            dpath = ub.ensuredir((harn.train_dpath, 'monitor', harn.current_tag))
-            fpath = join(dpath, 'epoch_{}_batch_{}.jpg'.format(harn.epoch, harn.batch_index))
-            kwimage.imwrite(fpath, stacked)
+        #if harn.batch_index < 3:
+            #import kwimage
+            #decoded = harn._decode(outputs, batch['label'])
+            #stacked = harn._draw_batch(batch, decoded)
+            #dpath = ub.ensuredir((harn.train_dpath, 'monitor', harn.current_tag))
+            #fpath = join(dpath, 'epoch_{}_batch_{}.jpg'.format(harn.epoch, harn.batch_index))
+            #kwimage.imwrite(fpath, stacked)
 
         acc = (true_labels == pred_labels).mean()
 
@@ -125,7 +125,7 @@ class MnistHarn(nh.FitHarn):
             >>> kwplot.imshow(fpath, colorspace='rgb', doclf=True)
             >>> kwplot.show_if_requested()
         """
-        import kwimage
+        #import kwimage
         import kwplot
         inputs = batch['input']
         inputs = inputs[0:limit]
@@ -320,7 +320,7 @@ def main():
     deploy_fpath = harn.run()
 
     # The returned deploy_fpath is the path to an exported netharn model.
-    # This model is the on with the best weights according to the monitor.
+    # This model is the one with the best weights according to the monitor.
     print('deploy_fpath = {!r}'.format(deploy_fpath))
 
 
