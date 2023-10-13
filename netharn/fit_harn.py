@@ -478,6 +478,11 @@ class InitializeMixin(object):
                     harn.warn('Unable to symlink: {!r}'.format(ex))
 
             harn.train_info = train_info
+
+            print("\n\n\n")
+            print(harn.train_info)
+            print("\n\n\n")
+            
             harn.name_dpath = train_info['name_dpath']
             harn.train_dpath = train_info['train_dpath']
             return harn.train_dpath
